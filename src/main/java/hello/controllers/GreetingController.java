@@ -38,11 +38,4 @@ public class GreetingController {
         Thread.sleep(3000);
         return new Greeting("Hello2, " + message.getName() + "!");
     }
-
-    @MessageMapping("/simple")
-    @SendTo("/topic/simple")
-    public String simpleGreeting(String name) throws Exception {
-        Thread.sleep(3000);
-        return "Simple hi " + name + "!";
-    }
 }
