@@ -23,6 +23,9 @@
                 stompClient.subscribe('/topic/greetings', function (greeting) {
                     showGreeting(JSON.parse(greeting.body).content);
                 });
+                stompClient.subscribe('/topic/simple', function (greeting) {
+                    showGreeting(greeting.body);
+                });
             });
         }
 
@@ -34,9 +37,14 @@
             console.log("Disconnected");
         }
 
-        function sendName() {
+        function sendName(destination) {
             var name = document.getElementById('name').value;
-            stompClient.send("/app/say_hello", {}, JSON.stringify({'name': name}));
+            stompClient.send("/app/" + destination, {}, JSON.stringify({'name': name}));
+        }
+
+        function sendSimple() {
+            var name = document.getElementById('name').value;
+            stompClient.send("/app/simple", {}, name);
         }
 
         function showGreeting(message) {
@@ -59,7 +67,9 @@
     </div>
     <div id="conversationDiv">
         <label>What is your name?</label><input type="text" id="name"/>
-        <button id="sendName" onclick="sendName();">Send</button>
+        <button id="sendName" onclick="sendName('say_hello');">Send</button>
+        <button id="sendName2" onclick="sendName('say_hello2');">Send 2</button>
+        <button id="sendNameSimple" onclick="sendSimple();">Send Simple</button>
         <p id="response"></p>
     </div>
 </div>

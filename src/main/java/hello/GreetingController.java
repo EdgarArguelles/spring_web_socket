@@ -29,4 +29,18 @@ public class GreetingController {
         value is broadcast to all subscribers to "/topic/greetings" as specified in the @SendTo annotation.*/
         return new Greeting("Hello, " + message.getName() + "!");
     }
+
+    @MessageMapping("/say_hello2")
+    @SendTo("/topic/greetings")
+    public Greeting greeting2(HelloMessage message) throws Exception {
+        Thread.sleep(3000);
+        return new Greeting("Hello2, " + message.getName() + "!");
+    }
+
+    @MessageMapping("/simple")
+    @SendTo("/topic/simple")
+    public String simpleGreeting(String name) throws Exception {
+        Thread.sleep(3000);
+        return "Simple hi " + name + "!";
+    }
 }
