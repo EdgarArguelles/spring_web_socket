@@ -24,9 +24,9 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        /* Registers the "/hello" endpoint, enabling SockJS fallback options so that alternative messaging options
+        /* Registers the "/hi" endpoint, enabling SockJS fallback options so that alternative messaging options
         may be used if WebSocket is not available. This endpoint, when prefixed with "/app", is the endpoint that
         the GreetingController.greeting() method is mapped to handle.*/
-        registry.addEndpoint("/hello").withSockJS();
+        registry.addEndpoint("/hi").withSockJS();
     }
 }
