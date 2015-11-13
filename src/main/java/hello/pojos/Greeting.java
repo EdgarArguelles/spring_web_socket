@@ -1,4 +1,4 @@
-package hello;
+package hello.pojos;
 
 /**
  * Upon receiving the message and extracting the name, the service will process it by creating a greeting

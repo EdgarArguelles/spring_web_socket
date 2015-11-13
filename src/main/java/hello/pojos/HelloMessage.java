@@ -1,4 +1,4 @@
-package hello;
+package hello.pojos;
 
 /**
  * The service will accept messages containing a name in a STOMP message whose body is a JSON object.

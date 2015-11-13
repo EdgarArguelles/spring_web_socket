@@ -1,5 +1,7 @@
-package hello;
+package hello.controllers;
 
+import hello.pojos.Greeting;
+import hello.pojos.HelloMessage;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
